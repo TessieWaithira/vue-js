@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Sample Vue-js Page</title>
+ 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ </head>
+ <body>
+ 	<div class="row">
+ 		<div class="col-md-6 col-md-offset-3">
+ 			<div id="app">
+ 				<img class="img-circle" v-bind:src="profileImageUrl">	
+		 		<h3>Hello {{name}}</h3>
+		 		<p>Welcome to my site</p>
+		 		<p>I have {{maleUsers + femaleUsers}} users on my site</p>
+		 		<p>You are {{age > 18 ? 'allowed' : 'not allowed'}} to go to the next page</p>
+		 		<div v-if="shouldShow">
+		 			This is some content
+		 		</div> 
+		 		<ul>
+		 			<li v-for="user in users">{{user}}</li>	 			
+		 		</ul>
+
+ 		
+ 	</div>
+ 		</div>
+ 	</div>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+ 	<script>
+ 		new Vue({
+ 			el: '#app',
+ 			data: {
+ 				maleUsers: 45,
+ 				femaleUsers: 50,
+ 				users: ['Tessie', 'Waithira', 'Wambugu'],
+ 				age: 22,
+ 				name: 'Tessie',
+ 				profileImageUrl: 'https://tessiewaithira.github.io/tessie.png',
+ 				shouldShow: true
+ 			},
+ 		});
+ 	</script>
+ </body>
+ </html>
