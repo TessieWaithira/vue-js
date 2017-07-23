@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sample vue.js page</title>
+</head>
+<body>
+	<div id="guestbook-app">
+		<div class="form">
+			<input type="text" v-model="newEntry.name">
+			<textarea rows="10" cols="150" v-model="newEntry.text"></textarea>
+			<input type="button" v-on:click="addNewEntry()">			
+		</div>
+		<ul class="entries-list">
+			<li v-for="entry in entries">
+				<p>{{entry.text}}</p>
+				<small>Posted by {{entry.user}}</small>
+			</li>  
+		</ul>	
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+	<script>
+		new Vue({
+			el: '#guestbook-app',
+			data: {
+				newEntry: {
+					name: '',
+					text: '',
+				},
+				entries: [
+					{
+					text: "hello",
+					user: "Tessie",
+					},
+					{
+					text: "world ",
+					user: "Janne",
+					}
+				],
+			},
+			methods: {
+				addNewEntry() {
+					this.entries.push({
+						text: this.newEntry.text,
+						user: this.newEntry.name
+					})
+				}
+			}
+		});
+	</script>
+
+</body> 
+</html>
