@@ -1,6 +1,11 @@
 <template>
   <div id="app" class="container my-5">
     <h1>My online store</h1>
+      <div class="row">
+        <div class="col-md-3" v-for="item in forSale">
+          {{ item.name}}
+        </div>
+      </div>
   </div>
 </template>
 
@@ -9,7 +14,12 @@ export default {
   name: 'app',
   data () {
     return {
-      // nothing here
+      forSale: [
+        { invId: 1, name: 'An Item', image: '//placehold.it/200', price: 999 },   
+        { invId: 2, name: 'Item 2', image: '//placehold.it/200', price: 100 },
+        { invId: 3, name: 'Item 3', image: '//placehold.it/200', price: 800 },
+        { invId: 4, name: 'Item 4', image: '//placehold.it/200', price: 900 },       
+        ],
     };
   },
 };
